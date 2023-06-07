@@ -5,23 +5,27 @@ const allTasks = [
   {
     description: 'Configure webpack',
     completed: false,
+    index: 0,
   },
   {
     description: 'Go to college',
     completed: true,
+    index: 1,
   },
   {
     description: 'Request for a review',
     completed: false,
+    index: 2,
   },
 ];
 
 const displayTasks = () => {
   const elTaskList = document.querySelector('.all-tasks');
   elTaskList.innerHTML = '';
-  allTasks.forEach((el) => {
+  allTasks.forEach((el, index) => {
     // Create a task
     const task = document.createElement('li');
+    task.id = index;
     task.className = 'd-flex gap-2 mx-2 pb-1 align-items-center border-bottom border-secondary-subtle ';
 
     // Checkbox to see whether the task is complete of not.
