@@ -18,15 +18,22 @@
         </div>
 
         <!-- ADD A NEW ITEM -->
-        <div class="d-flex gap-2 mb-3">
-          <input type="text" id="task" class="col form-control fst-italic" placeholder="Add to your list" />
+        <form class="d-flex gap-2 mb-3 add-task-form">
+          <input type="text" id="task" class="col form-control fst-italic" placeholder="Add to your list"  required/>
           <button class="btn-add-task btn btn-success col-auto">Add</button>
-        </div>
+        </form>
 
         <!-- TASK LISTS -->
         <ul class="all-tasks list-unstyled d-flex flex-column gap-2"></ul>
 
         <button class="btn btn-secondary w-100">Clear all completed tasks</button>
+
+        <!-- Edit a task -->
+        <form class="d-flex gap-2 mb-3 edit-task-form mt-3 d-none">
+          <input type="text" id="edit" class="col form-control fst-italic"   required/>
+          <button type="reset" class="btn-cancel-task btn btn-danger col-auto">Cancel</button>
+          <button type="submit" class="btn-edit-task btn btn-warning col-auto">Save</button>
+        </form>
       </div>
       <div class="d-none d-sm-block col-sm-1 col-md-2"></div>
     </div>
