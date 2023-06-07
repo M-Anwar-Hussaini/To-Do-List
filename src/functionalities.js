@@ -35,7 +35,7 @@ class ToDoList {
   editTask(index, form) {
     const editEl = document.getElementById('edit');
     editEl.placeholder = `Write here to change "${this.allTasks[index].description}":`;
-    editEl.value = '';
+    editEl.value = this.allTasks[index].description;
     editEl.focus();
     form.addEventListener('submit', (e) => {
       e.preventDefault();
