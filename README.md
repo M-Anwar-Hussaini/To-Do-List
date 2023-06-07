@@ -69,7 +69,6 @@
     <li>JavaScript</li>
   </ul>
 </details>
-<details>
 
 <!-- Features -->
 
