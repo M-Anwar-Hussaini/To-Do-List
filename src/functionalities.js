@@ -16,7 +16,7 @@ class ToDoList {
     const task = {
       description: desc.value,
       completed: false,
-      index: this.allTasks.length,
+      index: (this.allTasks.length + 1),
     };
     this.allTasks.push(task);
     desc.value = '';
@@ -27,7 +27,7 @@ class ToDoList {
   deleteTask(index) {
     this.allTasks.splice(index, 1);
     this.allTasks.forEach((task, newIndex) => {
-      task.index = newIndex;
+      task.index = newIndex + 1;
     });
     this.reload();
   }
