@@ -1,0 +1,12 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.refresh-icon,
+.option--icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
