@@ -1,10 +1,19 @@
+import * as func from './checkbox.js';
+
 class ToDoList {
   constructor() {
     const form = document.querySelector('.add-task-form');
+    const clearAllBtn = document.querySelector('.btn--clear-all');
+    clearAllBtn.addEventListener('click', () => {
+      this.allTasks = func.deleteAllCompletedTasks(this.allTasks);
+      this.reload();
+    });
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       this.addTask();
     });
+
+    this.editForm = document.querySelector('.edit-task-form');
     this.allTasks = [];
     this.storageName = 'to-do-list';
     this.loadTasks();
@@ -16,7 +25,7 @@ class ToDoList {
     const task = {
       description: desc.value,
       completed: false,
-      index: (this.allTasks.length + 1),
+      index: this.allTasks.length + 1,
     };
     this.allTasks.push(task);
     desc.value = '';
@@ -25,6 +34,9 @@ class ToDoList {
 
   // Delete the specefic task -> CORE REQUREMENT
   deleteTask(index) {
+    if (this.isEditVisible()) {
+      return;
+    }
     this.allTasks.splice(index, 1);
     this.allTasks.forEach((task, newIndex) => {
       task.index = newIndex + 1;
@@ -32,21 +44,26 @@ class ToDoList {
     this.reload();
   }
 
-  editTask(index, form) {
+  editTask(task) {
+    this.editForm.classList.remove('d-none');
     const editEl = document.getElementById('edit');
-    editEl.placeholder = `Write here to change "${this.allTasks[index].description}":`;
-    editEl.value = this.allTasks[index].description;
+    editEl.placeholder = `Write here to change "${task.description}":`;
+    editEl.value = task.description;
     editEl.focus();
-    form.addEventListener('submit', (e) => {
+    this.editForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      this.allTasks[index].description = editEl.value;
-      form.classList.add('d-none');
-      this.reload();
+      for (let i = 0; i < this.allTasks.length; i += 1) {
+        if (this.allTasks[i] === task) {
+          this.allTasks[i].description = editEl.value;
+          this.editForm.classList.add('d-none');
+          this.reload();
+        }
+      }
     });
 
-    form.addEventListener('reset', (e) => {
+    this.editForm.addEventListener('reset', (e) => {
       e.preventDefault();
-      form.classList.add('d-none');
+      this.editForm.classList.add('d-none');
       this.reload();
     });
   }
@@ -76,25 +93,27 @@ class ToDoList {
     check.type = 'checkbox';
     check.className = 'form-check';
     check.checked = task.completed;
+    check.addEventListener('change', () => {
+      func.changeStatus(check, task);
+      this.saveTasks();
+    });
 
     // Task Description
     const text = document.createElement('p');
     text.className = 'm-0';
     text.textContent = task.description;
 
-    // Edot icon
+    // Edit icon
     const editEl = document.createElement('ion-icon');
     editEl.name = 'create-outline';
     editEl.classList = 'edit-icon-item option--icon ms-auto';
     editEl.title = 'Edit';
 
     editEl.addEventListener('click', () => {
-      const editForm = document.querySelector('.edit-task-form');
-      if (!editForm.classList.contains('d-none')) {
+      if (this.isEditVisible()) {
         return;
       }
-      editForm.classList.remove('d-none');
-      this.editTask(index, editForm);
+      this.editTask(task);
     });
 
     // Delete icon
@@ -104,6 +123,9 @@ class ToDoList {
     deleteEl.title = 'Delete';
 
     deleteEl.addEventListener('click', () => {
+      if (this.isEditVisible()) {
+        return;
+      }
       this.deleteTask(index);
     });
 
@@ -128,6 +150,10 @@ class ToDoList {
     this.saveTasks();
     this.loadTasks();
     this.displayAllTasks();
+  }
+
+  isEditVisible() {
+    return !this.editForm.classList.contains('d-none');
   }
 }
 
