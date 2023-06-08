@@ -4,5 +4,9 @@ export function changeStatus(btn, task) {
 }
 
 export function deleteAllCompletedTasks(tasks) {
-  return tasks.filter((el) => !el.completed);
+  const updatedTasks = tasks.filter((el) => !el.completed);
+  updatedTasks.forEach((task, index) => {
+    task.index = index + 1;
+  });
+  return updatedTasks;
 }
