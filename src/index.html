@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./bootstrap.min.css">
     <title>To-Do List</title>
   </head>
   <body class="d-flex flex-column min-vh-100">
-    <div class="row row-cols-1 row-cols-sm-3 container mx-auto py-2 my-auto">
+    <div class="row row-cols-1 row-cols-sm-3 container mx-auto py-2 my-2 my-md-auto">
       <div class="d-none d-sm-block col-sm-1 col-md-2"></div>
       <!-- Container of the TO-DO LIST -->
       <div class="col col-12 col-sm-10 col-md-8 py-3 rounded border border-secondary">
@@ -26,7 +27,7 @@
         <!-- TASK LISTS -->
         <ul class="all-tasks list-unstyled d-flex flex-column gap-2"></ul>
 
-        <button class="btn btn-secondary w-100">Clear all completed tasks</button>
+        <button class="btn--clear-all btn btn-secondary w-100">Clear all completed tasks</button>
 
         <!-- Edit a task -->
         <form class="d-flex gap-2 mb-3 edit-task-form mt-3 d-none">
