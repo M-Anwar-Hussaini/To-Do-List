@@ -253,7 +253,7 @@ If you like this project, kindly drop a start for the [repository](https://githu
 - 🙏 [**Microvere**](https://www.microverse.org/?grsf=mohammad-a-nbtazu) for its arrangement and supports to all Micronauts and me.
 - 🙏 [**IonIcon**](https://ionic.io/ionicons) for its free flexable icons.
 - 🙏 [**Bootstrap**](https://getbootstrap.com/) Bootstrap for its invaluable framework that greatly enhanced this project.
-- 🙏 [**Hafizullah Rasa**](https://github.com/hafiz1379) for his instructions on cinfiguring the linters (@hafiz1379).
+- 🙏 [**Hafizullah Rasa**](https://github.com/hafiz1379) for his instructions on cinfiguring the WebPack (@hafiz1379).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
