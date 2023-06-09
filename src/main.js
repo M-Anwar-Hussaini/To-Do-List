@@ -1,13 +1,9 @@
-import * as func from './checkbox.js';
-
 class ToDoList {
   constructor() {
     const form = document.querySelector('.add-task-form');
     const clearAllBtn = document.querySelector('.btn--clear-all');
-    clearAllBtn.addEventListener('click', () => {
-      this.allTasks = func.deleteAllCompletedTasks(this.allTasks);
-      this.reload();
-    });
+    clearAllBtn.addEventListener('click', () => this.deleteAllCompletedTasks());
+
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       this.addTask();
@@ -44,6 +40,7 @@ class ToDoList {
     this.reload();
   }
 
+  // Edit each task
   editTask(task) {
     this.editForm.classList.remove('d-none');
     const editEl = document.getElementById('edit');
@@ -94,7 +91,7 @@ class ToDoList {
     check.className = 'form-check';
     check.checked = task.completed;
     check.addEventListener('change', () => {
-      func.changeStatus(check, task);
+      task.completed = check.checked;
       this.saveTasks();
     });
 
@@ -154,6 +151,14 @@ class ToDoList {
 
   isEditVisible() {
     return !this.editForm.classList.contains('d-none');
+  }
+
+  deleteAllCompletedTasks() {
+    this.allTasks = this.allTasks.filter((el) => !el.completed);
+    this.allTasks.forEach((task, index) => {
+      task.index = index + 1;
+    });
+    this.reload();
   }
 }
 
