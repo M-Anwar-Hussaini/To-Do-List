@@ -85,9 +85,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-<!-- - ✅ You can see the live demo of this webpage by clicking [here](https://m-anwar-hussaini.github.io/Genius-Academy/); -->
-
-- Not available for now.
+- ✅ You can see the live demo of this webpage by clicking [here](https://m-anwar-hussaini.github.io/To-Do-List/dist/);
 
 <!-- - [Live Demo Link](https://google.com) -->
 
@@ -222,9 +220,9 @@ npx eslint .
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Add New Task dynamically]**
-- [ ] **[Local Storage Usage]**
-- [ ] **[Manipulate Tasks]**
+- [x] **[Add New Task dynamically]**
+- [x] **[Local Storage Usage]**
+- [x] **[Manipulate Tasks]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -253,7 +251,9 @@ If you like this project, kindly drop a start for the [repository](https://githu
 **I would like to thank the following individuals and organizations for their contribution to this project.**
 
 - 🙏 [**Microvere**](https://www.microverse.org/?grsf=mohammad-a-nbtazu) for its arrangement and supports to all Micronauts and me.
-- 🙏 [**IonIcon**]() for its free flexable icons.
+- 🙏 [**IonIcon**](https://ionic.io/ionicons) for its free flexable icons.
+- 🙏 [**Bootstrap**](https://getbootstrap.com/) Bootstrap for its invaluable framework that greatly enhanced this project.
+- 🙏 [**Hafizullah Rasa**](https://github.com/hafiz1379) for his instructions on cinfiguring the linters (@hafiz1379).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
