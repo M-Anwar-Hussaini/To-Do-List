@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+  <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
+  <body class="d-flex flex-column min-vh-100">
+    <div class="row row-cols-1 row-cols-sm-3 container mx-auto py-2 my-2 my-md-auto">
+      <div class="d-none d-sm-block col-sm-1 col-md-2"></div>
+      <!-- Container of the TO-DO LIST -->
+      <div class="col col-12 col-sm-10 col-md-8 py-3 rounded border border-secondary">
+        <!-- HEADER SECTION -->
+        <div class="d-flex justify-content-between align-items-center p-3 mb-2 text-bg-primary rounded">
+          <label class="form-label h4 m-0" for="task">Today's To do</label>
+          <ion-icon name="refresh-outline" class="refresh-icon"></ion-icon>
+        </div>
+
+        <!-- ADD A NEW ITEM -->
+        <form class="d-flex gap-2 mb-3 add-task-form">
+          <input type="text" id="task" class="col form-control fst-italic" placeholder="Add to your list"  required/>
+          <button class="btn-add-task btn btn-success col-auto">Add</button>
+        </form>
+
+        <!-- TASK LISTS -->
+        <ul class="all-tasks list-unstyled d-flex flex-column gap-2"></ul>
+
+        <button class="btn--clear-all btn btn-secondary w-100">Clear all completed tasks</button>
+
+        <!-- Edit a task -->
+        <form class="d-flex gap-2 mb-3 edit-task-form mt-3 d-none">
+          <input type="text" id="edit" class="col form-control fst-italic"   required/>
+          <button type="reset" class="btn-cancel-task btn btn-danger col-auto">Cancel</button>
+          <button type="submit" class="btn-edit-task btn btn-warning col-auto">Save</button>
+        </form>
+      </div>
+      <div class="d-none d-sm-block col-sm-1 col-md-2"></div>
+    </div>
+    <!--------------------------->
+    <!-- EXTERNAL SCRIPT FILES -->
+    <!--------------------------->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
