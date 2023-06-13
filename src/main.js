@@ -12,19 +12,19 @@ class ToDoList {
     this.editForm = document.querySelector('.edit-task-form');
     this.allTasks = [];
     this.storageName = 'to-do-list';
+    this.descriptionValue = document.querySelector('#task');
     this.loadTasks();
   }
 
   // Add a new task to the Task list --> CORE REQUREMENT
   addTask() {
-    const desc = document.querySelector('#task');
     const task = {
-      description: desc.value,
+      description: this.descriptionValue.value,
       completed: false,
       index: this.allTasks.length + 1,
     };
     this.allTasks.push(task);
-    desc.value = '';
+    this.descriptionValue.value = '';
     this.reload();
   }
 
